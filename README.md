@@ -1,1 +1,1 @@
-<h1> TIENDA </h1>
+<h1 style="center"> TIENDA </h1>
