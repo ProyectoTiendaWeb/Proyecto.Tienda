@@ -1,3 +1,12 @@
+- Instalar NODE LTB 
+- npm install
+- (Este comando no es necesario si se hace el git pull) npx create-react-app proyecto-tienda
+- Si da error de dependencias ejecutar el siguiente comando para instalar dependencias manualmente: npm install @testing-library/react@latest @testing-library/jest-dom@latest @testing-library/user-event@latest
+- npm start
+- Hasta acá debería funcionar, obviamente es el proyecto base, por lo tanto es muuuuy básico 
+
+
+
 <<<<<<< HEAD
 # Getting Started with Create React App
 
