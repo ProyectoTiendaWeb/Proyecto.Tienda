@@ -1,3 +1,4 @@
+// App.js
 import React from 'react';
 import './App.css';
 import Producto from './Producto';
@@ -11,6 +12,8 @@ function App() {
       <header className="App-header">
         <h1>Bienvenido a nuestra tienda de ropa</h1>
         <p>Explora nuestra colección de moda.</p>
+      </header>
+      <main>
         <div className="productos">
           <Producto
             nombre="Camiseta Seleccion"
@@ -28,7 +31,7 @@ function App() {
             imagen={botines}
           />
         </div>
-      </header>
+      </main>
     </div>
   );
 }
