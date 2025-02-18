@@ -1,63 +1,90 @@
-/* App.css */
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  color: white;
-  padding: 15px 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+/* Reset básico para evitar márgenes y paddings indeseados */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-.navbar li {
+/* Contenedor principal de la tienda */
+.productos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Distribución flexible */
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Estilos para cada producto */
+.producto {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.producto:hover {
+  transform: scale(1.05);
+}
+
+/* Imágenes de productos */
+.producto img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+/* Botón de "Agregar al carrito" */
+button {
+  background: #007bff; /* Azul atractivo */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 14px;
 }
 
-/* Para evitar que el navbar tape el contenido */
-.App-header {
-  margin-top: 60px;
+button:hover {
+  background: #0056b3;
 }
-/* Carrito */
+
+/* Carrito de compras */
 .carrito {
   position: fixed;
   top: 60px;
   right: 20px;
+  width: 280px;
+  max-height: 400px;
+  overflow-y: auto;
   background: white;
-  border: 1px solid #ddd;
   padding: 15px;
-  width: 250px;
-  border-radius: 5px;
+  border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.carrito ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.carrito li {
+/* Mejoramos el menú de navegación */
+.navbar {
+  background: #333;
+  padding: 15px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 5px 0;
+  align-items: center;
 }
 
-.carrito img {
-  width: 40px;
-  height: auto;
-  border-radius: 3px;
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
 }
