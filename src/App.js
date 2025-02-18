@@ -23,7 +23,7 @@ function App() {
         <p>Explora nuestra colección de moda.</p>
       </header>
       <main>
-        <div className="productos">
+        <div className="productos-container">
           <Producto nombre="Camiseta Selección" precio={19.99} imagen={camiseta} agregarAlCarrito={agregarAlCarrito} />
           <Producto nombre="Pantalones Selección" precio={39.99} imagen={pantalones} agregarAlCarrito={agregarAlCarrito} />
           <Producto nombre="Botines" precio={59.99} imagen={botines} agregarAlCarrito={agregarAlCarrito} />
