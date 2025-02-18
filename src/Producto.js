@@ -1,14 +1,15 @@
-// Producto.js
 import React from 'react';
 import './Producto.css';
 
-function Producto({ nombre, precio, imagen }) {
+function Producto({ nombre, precio, imagen, agregarAlCarrito }) {
   return (
-    <div className="producto-card">
-      <img src={imagen} alt={nombre} className="producto-imagen" />
-      <h3 className="producto-nombre">{nombre}</h3>
-      <p className="producto-precio">${precio}</p>
-      <button className="producto-boton">Comprar</button>
+    <div className="producto">
+      <img src={imagen} alt={nombre} />
+      <h2>{nombre}</h2>
+      <p>${precio.toFixed(2)}</p>
+      <button onClick={() => agregarAlCarrito({ nombre, precio, imagen })}>
+        Agregar al carrito
+      </button>
     </div>
   );
 }

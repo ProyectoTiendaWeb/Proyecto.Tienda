@@ -1,13 +1,15 @@
 import React from 'react';
+import './Navbar.css';
 
-function Navbar() {
+function Navbar({ carrito }) {
   return (
     <nav className="navbar">
+      <h1>Tienda</h1>
       <ul>
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/productos">Productos</a></li>
-        <li><a href="/carrito">Carrito</a></li>
-        <li><a href="/contacto">Contacto</a></li>
+        <li>Inicio</li>
+        <li>Productos</li>
+        <li>Contacto</li>
+        <li>🛒 Carrito ({carrito.length})</li> {/* Muestra cantidad de productos */}
       </ul>
     </nav>
   );
