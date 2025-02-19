@@ -3,39 +3,40 @@
 .producto-card {
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 250px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-    /* Claves para alinear elementos verticalmente */
-    display: flex;              /* Conviertes el contenedor en un flex container */
-    flex-direction: column;     /* Apilas el contenido en columna */
-    justify-content: space-between; /* Espacio entre el contenido y el botón */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Asegura que el botón esté siempre abajo */
   }
- 
   
   .producto-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   }
   
   .producto-imagen {
     width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+    height: 150px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+    margin-bottom: 15px; /* Espacio debajo de la imagen */
     border-radius: 4px;
   }
   
   .producto-nombre {
-    font-size: 1.4rem;
-    margin: 10px 0;
+    font-size: 1.2rem;
+    margin: 10px 0; /* Espacio arriba y abajo del nombre */
+    color: #333;
   }
   
   .producto-precio {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #888;
+    margin: 10px 0; /* Espacio arriba y abajo del precio */
   }
   
   .producto-boton {
@@ -46,11 +47,48 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
+    margin-top: 15px; /* Espacio arriba del botón */
+    width: 100%; /* Ocupa todo el ancho disponible */
   }
   
   .producto-boton:hover {
     background-color: #0056b3;
   }
-  
+
+.producto {
+  background: white;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: left;
+}
+
+.producto img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.producto h2 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.producto p {
+  color: #333;
+}
+
+button {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #ff3b2f;
+}
