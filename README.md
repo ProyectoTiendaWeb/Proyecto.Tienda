@@ -1,83 +1,128 @@
-- Instalar NODE LTB 
-- npm install
-- (Este comando no es necesario si se hace el git pull) npx create-react-app proyecto-tienda
-- Si da error de dependencias ejecutar el siguiente comando para instalar dependencias manualmente: npm install @testing-library/react@latest @testing-library/jest-dom@latest @testing-library/user-event@latest
-- npm start
-- Hasta acá debería funcionar, obviamente es el proyecto base, por lo tanto es muuuuy básico 
+# Proyecto Tienda
+
+Este proyecto es una aplicación de tienda que consta de un **frontend** desarrollado con React y Webpack, y un **backend** desarrollado con Express. Sigue las instrucciones para configurar el entorno y comenzar a trabajar.
+
+---
+
+## Requisitos Previos
+
+Antes de comenzar, asegúrate de tener instalados los siguientes requisitos en tu sistema:
+
+- **Node.js**: versión 16.x o superior
+- **npm**: viene incluido con Node.js
+- **MySQL**: para gestionar la base de datos
+
+---
+
+## Configuración del Proyecto
+
+### 1. Clonar el Repositorio
+
+```bash
+git clone https://github.com/tu-usuario/proyecto-tienda.git
+cd proyecto-tienda
+```
+
+### 2. Configurar el Backend
+
+#### 1. Ve a la carpeta del backend:
+```bash
+cd backend
+```
+
+#### 2. Instalar las dependencias:
+```bash
+npm install
+```
+
+#### 3. Crea un archivo .env en la carpeta backend con las siguientes variables de entorno:
+```text
+DB_HOST=127.0.0.1
+DB_USER=laravel
+DB_PASSWORD=Laravel2021
+DB_NAME=tienda
+DB_PORT=3306
+```
+
+#### 4. Inicia el servidor:
+```bash
+node app.js
+```
+
+El backend estará disponible en http://localhost:4000 (o el puerto configurado en node).
+
+### 5. Crear las tablas en la base de datos:
+```sql
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(100) UNIQUE NOT NULL,
+    edad INT NOT NULL,
+    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### 6. Prueba la API con curls:
+```bash
+# Obtener todos los usuarios
+curl -X GET http://localhost:4000/api/usuarios
+# Obtener un usuario por ID
+curl -X GET http://localhost:3000/api/usuarios/1
+# Crear un nuevo usuario
+curl -X POST http://localhost:3000/api/usuarios \
+-H "Content-Type: application/json" \
+-d '{
+  "nombre": "Juan Pérez",
+  "correo": "juan@example.com",
+  "edad": 30
+}'
+# Actualizar un usuario
+curl -X PUT http://localhost:3000/api/usuarios/1 \
+-H "Content-Type: application/json" \
+-d '{
+  "nombre": "Juan Actualizado",
+  "correo": "juan_updated@example.com",
+  "edad": 31
+}'
+```
+
+### 3. Configurar el Frontend
+
+#### 1. Ve a la carpeta del frontend:   
+```bash
+cd frontend
+```
+
+#### 2. Instala las dependencias:
+```bash
+npm install
+```
+
+#### 3. Inicia el servidor de desarrollo:
+```bash
+npm start
+```
+
+El frontend estará disponible en http://localhost:3000 (o el puerto configurado en Webpack).
+
+___
+
+## Estructura del Proyecto
+```text
+proyecto-tienda/
+├── backend/      # Código del servidor con Express
+│   ├── app.js    # Archivo principal del servidor
+│   ├── routes    # Rutas de la API
+│   ├── config/   # Configuración de base de datos y otros
+│   └── routes/   # Rutas de la API
+├── frontend/     # Código del cliente con React
+│   ├── src/      # Código fuente de React
+│   ├── public/   # Archivos estáticos
+└── README.md     # Este archivo
+```
 
 
 
-<<<<<<< HEAD
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-<h1 style="text-align: center;">TIENDA</h1>
->>>>>>> 18191056295d3f9bf3761926d26370c2b03bca45
