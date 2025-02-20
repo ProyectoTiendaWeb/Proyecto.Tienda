@@ -1,7 +1,7 @@
 - Instalar NODE LTB 
 - Sobre la carpeta ./proyecto.tienda/frontend ejecutar: npm install
-- Sobre la carpeta ./proyecto.tienda/frontend ejecutar: npm start
 - Sobre la carpeta ./proyecto.tienda/backend ejecutar: npm install
+- Sobre la carpeta ./proyecto.tienda/frontend ejecutar: npm start
 - Sobre la carpeta ./proyecto.tienda/backend ejecutar: node server.js
   
 Si da error de dependencias ejecutar el siguiente comando para instalar dependencias manualmente en ./proyecto.tienda/frontend:: npm install @testing-library/react@latest @testing-library/jest-dom@latest @testing-library/user-event@latest
