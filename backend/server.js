@@ -20,6 +20,10 @@ db.connect(err => {
     console.log('MySQL connected...');
 });
 
+// Importar authRoutes después de definir db
+const authRoutes = require('./routes/authRoutes');
+app.use('/api/auth', authRoutes);
+
 app.post('/register', (req, res) => {
     const { nombre, email, password } = req.body;
     const hashedPassword = bcrypt.hashSync(password, 8);
