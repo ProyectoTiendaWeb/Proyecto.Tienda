@@ -1,5 +1,5 @@
 import React from 'react';
-import './Carrito.css';
+import '../styles/Carrito.css';
 
 function Carrito({ carrito }) {
   return (
