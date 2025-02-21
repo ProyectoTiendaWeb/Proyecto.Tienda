@@ -1,21 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/Navbar.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../styles/Navbar.css"; // Asegúrate de que esta ruta es correcta
 
-function Navbar({ carrito }) {
+const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="navbar-logo">
-        <h1>Tienda</h1>
-      </div>
+      <div className="navbar-brand">Mi Tienda</div>
       <ul className="navbar-links">
-        <li><Link to="/">Inicio</Link></li>
-        <li><Link to="/contacto">Contacto</Link></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/products">Products</Link></li>
+        <li><Link to="/contact">Contact</Link></li>
         <li><Link to="/login">Login</Link></li>
-        <li>🛒 Carrito ({carrito.length})</li>
       </ul>
     </nav>
   );
-}
+};
 
 export default Navbar;
