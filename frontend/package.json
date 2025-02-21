@@ -2,7 +2,7 @@
   "name": "proyecto-tienda",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tiendawebonline.netlify.app",
+  "homepage": "https://tiendawebonline.netlify.app/frontend",
   "dependencies": {
     "axios": "^0.21.1",
     "react": "^18.3.1",
