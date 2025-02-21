@@ -1,38 +1,23 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import '../styles/Login.css';
+import React from "react";
+import "../styles/Login.css";
 
-const Login = ({ setAuth }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
-      localStorage.setItem('token', res.data.token);
-      setAuth(true);
-    } catch (err) {
-      console.error(err);
-      alert('Login failed');
-    }
-  };
-
+const Login = () => {
   return (
     <div className="login-container">
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <label>
-          Email:
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        </label>
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        </label>
-        <button type="submit">Login</button>
-      </form>
-      <p className="register-link">No tienes una cuenta? <a href="/register">Regístrate aquí</a></p>
+      <div className="login-box">
+        <h2>Login</h2>
+        <form>
+          <label>Email:</label>
+          <input type="email" placeholder="Enter your email" required />
+
+          <label>Password:</label>
+          <input type="password" placeholder="Enter your password" required />
+
+          <button type="submit">Login</button>
+
+          <a href="#" className="forgot-password">Forgot your password?</a>
+        </form>
+      </div>
     </div>
   );
 };
