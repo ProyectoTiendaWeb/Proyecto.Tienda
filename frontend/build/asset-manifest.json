@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.11926cb1.css",
+    "main.js": "/static/js/main.6abd0ef7.js",
+    "static/media/botines.png": "/static/media/botines.16789f365e5245d85229.png",
+    "static/media/camiseta.png": "/static/media/camiseta.dc9f953a3de317c1de5a.png",
+    "static/media/pantalones.png": "/static/media/pantalones.0a06197bcab6fe553b1b.png",
+    "index.html": "/index.html",
+    "main.11926cb1.css.map": "/static/css/main.11926cb1.css.map",
+    "main.6abd0ef7.js.map": "/static/js/main.6abd0ef7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.11926cb1.css",
+    "static/js/main.6abd0ef7.js"
+  ]
+}
