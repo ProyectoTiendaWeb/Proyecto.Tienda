@@ -10,7 +10,6 @@ import './styles/App.css';
 
 function App() {
   const [carrito, setCarrito] = useState([]);
-  const [auth, setAuth] = useState(false);
 
   const agregarAlCarrito = (producto) => {
     setCarrito((prevCarrito) => {
@@ -29,29 +28,32 @@ function App() {
   };
 
   const descontarDelCarrito = (producto) => {
-    setCarrito((prevCarrito) => {
-      return prevCarrito.map((item) => {
-        if (item.nombre === producto.nombre) {
-          if (item.cantidad > 1) {
-            return { ...item, cantidad: item.cantidad - 1 };
-          } else {
-            return null;
-          }
-        }
-        return item;
-      }).filter(Boolean);
-    });
+    setCarrito((prevCarrito) =>
+      prevCarrito
+        .map((item) =>
+          item.nombre === producto.nombre
+            ? item.cantidad > 1
+              ? { ...item, cantidad: item.cantidad - 1 }
+              : null
+            : item
+        )
+        .filter(Boolean) // 🔹 Elimina `null` (productos con cantidad 0)
+    );
   };
 
   return (
     <Router>
       <div className="App">
         <Navbar carrito={carrito} />
-        <Carrito items={carrito} eliminarDelCarrito={eliminarDelCarrito} descontarDelCarrito={descontarDelCarrito} />
+        <Carrito
+          items={carrito}
+          eliminarDelCarrito={eliminarDelCarrito}
+          descontarDelCarrito={descontarDelCarrito} // 🔹 Ahora se pasa correctamente
+        />
         <Routes>
           <Route path="/" element={<Home agregarAlCarrito={agregarAlCarrito} carrito={carrito} />} />
           <Route path="/contacto" element={<Contacto />} />
-          <Route path="/login" element={<Login setAuth={setAuth} />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
       </div>

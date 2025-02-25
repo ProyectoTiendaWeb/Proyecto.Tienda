@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../styles/Carrito.css';
 
 const Carrito = ({ items = [], eliminarDelCarrito, descontarDelCarrito }) => {
+  console.log("descontarDelCarrito en Carrito.js:", descontarDelCarrito);
+  
   const [isVisible, setIsVisible] = useState(false);
   const isEmpty = items.length === 0;
 
@@ -24,13 +26,13 @@ const Carrito = ({ items = [], eliminarDelCarrito, descontarDelCarrito }) => {
               <ul>
                 {items.map((item, index) => (
                   <li key={index}>
-                    <span>{item.nombre} - ${item.precio} x {item.cantidad}</span>
                     <button className="decrement-button" onClick={(e) => {
                       e.stopPropagation();
-                      descontarDelCarrito(item);
+                      descontarDelCarrito(item); // 🔹 Ahora debería funcionar correctamente
                     }}>
-                      −
+                      <i className="fas fa-minus"></i>
                     </button>
+                    <span>{item.nombre} - ${item.precio} x {item.cantidad}</span>
                   </li>
                 ))}
               </ul>
