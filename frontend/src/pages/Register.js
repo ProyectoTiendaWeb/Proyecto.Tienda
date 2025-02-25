@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/Register.css';
 
@@ -24,22 +25,24 @@ const Register = () => {
 
   return (
     <div className="register-container">
-      <h1>Registrar</h1>
-      <form onSubmit={handleRegister}>
-        <label>
-          Nombre:
+      <div className="register-box">
+        <h2>Crear Cuenta</h2>
+        <form onSubmit={handleRegister}>
+          <label>Nombre:</label>
           <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} required />
-        </label>
-        <label>
-          Email:
+
+          <label>Email:</label>
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        </label>
-        <label>
-          Password:
+
+          <label>Contraseña:</label>
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        </label>
-        <button type="submit">Registrar</button>
-      </form>
+
+          <button type="submit">Registrarse</button>
+        </form>
+        <p className="login-link">
+          ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link>
+        </p>
+      </div>
     </div>
   );
 };
