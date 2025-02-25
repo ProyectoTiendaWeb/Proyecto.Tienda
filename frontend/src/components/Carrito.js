@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import '../styles/Carrito.css';
 
 const Carrito = ({ items = [], eliminarDelCarrito, descontarDelCarrito }) => {
-  console.log("descontarDelCarrito en Carrito.js:", descontarDelCarrito);
   
   const [isVisible, setIsVisible] = useState(false);
   const isEmpty = items.length === 0;
