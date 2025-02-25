@@ -4,6 +4,7 @@ import Carrito from '../components/Carrito';
 import camiseta from '../assets/camiseta.png';
 import pantalones from '../assets/pantalones.png';
 import botines from '../assets/botines.png';
+import '../styles/Home.css';
 
 const Home = ({ agregarAlCarrito, carrito }) => {
   const productos = [
@@ -67,7 +68,7 @@ const Home = ({ agregarAlCarrito, carrito }) => {
             />
           ))}
         </div>
-        <Carrito carrito={carrito} /> {/* Muestra el carrito */}
+        <Carrito items={carrito} /> {/* Muestra el carrito */}
       </main>
     </div>
   );
