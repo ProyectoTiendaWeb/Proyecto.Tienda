@@ -51,13 +51,13 @@ const Home = ({ agregarAlCarrito, carrito }) => {
   ];
 
   return (
-    <div>
-      <header className="App-header">
-        <h1>Bienvenido a nuestra tienda de ropa</h1>
-        <p>Explora nuestra colección de moda.</p>
+    <div className="products-container">
+      <header className="section-header">
+        <h1 className="section-title">Bienvenido a nuestra tienda de ropa</h1>
+        <p className="section-subtitle">Explora nuestra colección de moda.</p>
       </header>
       <main>
-        <div className="productos-container">
+        <div className="products-grid">
           {productos.map((producto, index) => (
             <Producto
               key={index}
@@ -68,7 +68,7 @@ const Home = ({ agregarAlCarrito, carrito }) => {
             />
           ))}
         </div>
-        <Carrito items={carrito} /> {/* Muestra el carrito */}
+        <Carrito items={carrito} />
       </main>
     </div>
   );

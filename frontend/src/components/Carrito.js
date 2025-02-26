@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Carrito.css';
 
 // Contador global para identificar instancias
@@ -7,6 +8,7 @@ let instanceCounter = 0;
 const Carrito = ({ items = [], eliminarDelCarrito, descontarDelCarrito }) => {
   const [isVisible, setIsVisible] = useState(false);
   const isEmpty = items.length === 0;
+  const navigate = useNavigate();
   
   // Asignar un ID único a cada instancia
   const [instanceId] = useState(() => {
@@ -62,6 +64,11 @@ const Carrito = ({ items = [], eliminarDelCarrito, descontarDelCarrito }) => {
     }
   };
 
+  const handleCheckout = (e) => {
+    e.stopPropagation();
+    navigate('/checkout');
+  };
+
   const itemCount = items.reduce((total, item) => total + item.cantidad, 0);
   const totalPrice = items.reduce((total, item) => total + item.precio * item.cantidad, 0).toFixed(2);
 
@@ -95,6 +102,12 @@ const Carrito = ({ items = [], eliminarDelCarrito, descontarDelCarrito }) => {
               <div className="total">
                 <strong>Total: ${totalPrice}</strong>
               </div>
+              <button 
+                className="checkout-button"
+                onClick={handleCheckout}
+              >
+                Proceder al pago
+              </button>
             </>
           )}
         </>

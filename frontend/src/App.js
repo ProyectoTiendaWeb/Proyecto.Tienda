@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import Checkout from './pages/Checkout';
 import Contacto from './pages/Contacto';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Carrito from './components/Carrito';
 import './styles/App.css';
 
 function App() {
@@ -52,14 +52,10 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
-        <Carrito
-          items={carrito}
-          eliminarDelCarrito={eliminarDelCarrito}
-          descontarDelCarrito={descontarDelCarrito}
-        />
+        <Navbar carrito={carrito} />
         <Routes>
           <Route path="/" element={<Home agregarAlCarrito={agregarAlCarrito} carrito={carrito} />} />
+          <Route path="/checkout" element={<Checkout items={carrito} />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
