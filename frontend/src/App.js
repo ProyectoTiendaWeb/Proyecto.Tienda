@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Homepage from '../src/pages/Homepage';
 import Home from './pages/Home';
 import Checkout from './pages/Checkout';
 import Contacto from './pages/Contacto';
@@ -11,7 +12,6 @@ import './styles/App.css';
 function App() {
   const [carrito, setCarrito] = useState([]);
 
-  // Exponer setCarrito globalmente para nuestra solución de depuración
   useEffect(() => {
     window.appSetCarrito = setCarrito;
     return () => {
@@ -45,7 +45,7 @@ function App() {
               : null
             : item
         )
-        .filter(Boolean) // Elimina `null` (productos con cantidad 0)
+        .filter(Boolean)
     );
   };
 
@@ -54,7 +54,9 @@ function App() {
       <div className="App">
         <Navbar carrito={carrito} />
         <Routes>
-          <Route path="/" element={<Home agregarAlCarrito={agregarAlCarrito} carrito={carrito} />} />
+          <Route path="/" element={<Homepage />} />
+          <Route path="/hombre" element={<Home agregarAlCarrito={agregarAlCarrito} carrito={carrito} />} />
+          <Route path="/mujer" element={<Home agregarAlCarrito={agregarAlCarrito} carrito={carrito} />} />
           <Route path="/checkout" element={<Checkout items={carrito} />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/login" element={<Login />} />
