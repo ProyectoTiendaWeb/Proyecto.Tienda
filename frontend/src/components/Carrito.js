@@ -49,6 +49,7 @@ const Carrito = ({ items = [], eliminarDelCarrito, descontarDelCarrito }) => {
 
   const handleCheckout = (e) => {
     e.stopPropagation();
+    setIsVisible(false);
     navigate('/checkout');
   };
 
@@ -58,42 +59,59 @@ const Carrito = ({ items = [], eliminarDelCarrito, descontarDelCarrito }) => {
   return (
     <div 
       ref={carritoRef}
-      className={`carrito-container ${isVisible ? 'visible' : 'hidden'}`} 
+      className={`carrito-container ${isVisible ? 'visible' : ''}`} 
       onClick={isVisible ? null : toggleVisibility}
     >
-      {isVisible ? (
-        <>
-          <h2>Carrito de Compras</h2>
-          {isEmpty ? (
-            <p>Tu carrito está vacío</p>
-          ) : (
-            <>
-              <ul>
-                {items.map((item, index) => (
-                  <li key={index}>
-                    <button className="decrement-button" onClick={(e) => handleDecrement(e, item)}>
-                      <i className="fas fa-minus"></i>
-                    </button>
-                    <span>{item.nombre} - ${item.precio} x {item.cantidad}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="total">
-                <strong>Total: ${totalPrice}</strong>
-              </div>
-              <button 
-                className="checkout-button"
-                onClick={handleCheckout}
-              >
-                Proceder al pago
-              </button>
-            </>
-          )}
-        </>
-      ) : (
+      <div className="carrito-icon-wrapper">
         <div className="carrito-icon">
           <i className="fas fa-shopping-cart"></i>
           {itemCount > 0 && <span className="item-count">{itemCount}</span>}
+        </div>
+      </div>
+      {isVisible && (
+        <div className="carrito-dropdown">
+          <h2 className="carrito-title">Carrito de Compras</h2>
+          {isEmpty ? (
+            <p className="empty-cart-message">Tu carrito está vacío</p>
+          ) : (
+            <>
+              <ul className="cart-items-list">
+                {items.map((item, index) => (
+                  <li key={index} className="cart-item">
+                    <div className="cart-item-image">
+                      <img src={item.imagen} alt={item.nombre} />
+                    </div>
+                    <div className="cart-item-details">
+                      <h3 className="cart-item-name">{item.nombre}</h3>
+                      <div className="cart-item-price">
+                        <span>${item.precio}</span>
+                        <span className="cart-item-quantity">x {item.cantidad}</span>
+                      </div>
+                    </div>
+                    <button 
+                      className="decrement-button"
+                      onClick={(e) => handleDecrement(e, item)}
+                      aria-label="Reducir cantidad"
+                    >
+                      <i className="fas fa-minus"></i>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <div className="cart-footer">
+                <div className="cart-total">
+                  <span>Total:</span>
+                  <strong>${totalPrice}</strong>
+                </div>
+                <button 
+                  className="checkout-button"
+                  onClick={handleCheckout}
+                >
+                  Proceder al pago
+                </button>
+              </div>
+            </>
+          )}
         </div>
       )}
     </div>

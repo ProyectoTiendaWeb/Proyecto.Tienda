@@ -49,7 +49,6 @@ const Home = ({ agregarAlCarrito, carrito }) => {
       imagen: camiseta
     }
   ];
-
   return (
     <div className="products-container">
       <header className="section-header">
@@ -68,7 +67,6 @@ const Home = ({ agregarAlCarrito, carrito }) => {
             />
           ))}
         </div>
-        <Carrito items={carrito} />
       </main>
     </div>
   );

@@ -10,13 +10,12 @@ import "../styles/Homepage.css";
 
 const Homepage = () => {
   const [images, setImages] = useState([]);
-  const API_KEY = "ZfqJtGBHxpx90MAyDqurlOsWeIuf9o4N7HhXoG213Lug7KdDVgJx7Bh6"; // Tu clave de API
+  const API_KEY = "ZfqJtGBHxpx90MAyDqurlOsWeIuf9o4N7HhXoG213Lug7KdDVgJx7Bh6";
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const SEARCH_QUERY = "clothing";
-
+        const SEARCH_QUERY = "fashion store modern";
         const response = await axios.get(
           `https://api.pexels.com/v1/search?query=${SEARCH_QUERY}&per_page=10`,
           { headers: { Authorization: API_KEY } }
@@ -37,51 +36,67 @@ const Homepage = () => {
 
   return (
     <div className="homepage-container">
-      {/* Header */}
-      <header className="homepage-header">
-        <img src="../assets/logoh.jpg" alt="Huarpe Indumentaria" className="logo" />
-        <nav className="navbar">
-          <Link to="/hombre">Hombre</Link>
-          <Link to="/mujer">Mujer</Link>
-          <Link to="/contacto">Contacto</Link>
-        </nav>
-        <a href="https://wa.me/123456789" className="whatsapp-icon" target="_blank" rel="noopener noreferrer">
-          <FaWhatsapp size={24} />
-        </a>
-      </header>
+      <section className="hero-section">
+        <div className="hero-content">
+          <h1>Bienvenido a Huarpe Indumentaria</h1>
+          <p>Descubre las últimas tendencias en moda</p>
+        </div>
+      </section>
 
-      {/* Carrusel de productos */}
-      <section className="productos-destacados">
+      <section className="featured-products">
+        <h2 className="section-title">Productos Destacados</h2>
         {images.length > 0 ? (
           <Swiper
-            slidesPerView={3}
-            spaceBetween={20}
-            autoplay={{ delay: 2500, disableOnInteraction: false }}
+            slidesPerView={1}
+            spaceBetween={30}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
             pagination={{ clickable: true }}
+            breakpoints={{
+              640: { slidesPerView: 2, spaceBetween: 20 },
+              768: { slidesPerView: 3, spaceBetween: 30 },
+              1024: { slidesPerView: 4, spaceBetween: 30 }
+            }}
             modules={[Pagination, Autoplay]}
             className="swiper-container"
           >
             {images.map((image) => (
               <SwiperSlide key={image.id}>
-                <div className="producto-card">
-                  <img src={image.src.medium} alt={image.photographer} />
+                <div className="product-card">
+                  <div className="product-image-container">
+                    <img src={image.src.medium} alt={image.photographer} />
+                  </div>
+                  <div className="product-info">
+                    <h3>Colección Nueva</h3>
+                    <p>Descubre más</p>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
         ) : (
-          <p>No se encontraron imágenes o cargando imágenes...</p>
+          <div className="loading-message">
+            <p>Cargando productos destacados...</p>
+          </div>
         )}
       </section>
 
-      {/* Footer */}
-      <footer className="homepage-footer">
-        <div className="footer-info">
-          <p>&copy; 2025 Huarpe Indumentaria. Todos los derechos reservados.</p>
-          <p>Dirección: Calle Ejemplo 123, Ciudad, País</p>
-          <p>Teléfono: +123 456 789</p>
+      <section className="categories-section">
+        <h2 className="section-title">Nuestras Categorías</h2>
+        <div className="categories-grid">
+          <Link to="/hombre" className="category-card">
+            <h3>Hombre</h3>
+            <p>Explora nuestra colección masculina</p>
+          </Link>
+          <Link to="/mujer" className="category-card">
+            <h3>Mujer</h3>
+            <p>Descubre las últimas tendencias</p>
+          </Link>
         </div>
-      </footer>
+      </section>
+
+      <a href="https://wa.me/123456789" className="whatsapp-floating" target="_blank" rel="noopener noreferrer">
+        <FaWhatsapp size={40} />
+      </a>
     </div>
   );
 };
