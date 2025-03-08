@@ -4,6 +4,7 @@ import Carrito from '../components/Carrito';
 import camiseta from '../assets/camiseta.png';
 import pantalones from '../assets/pantalones.png';
 import botines from '../assets/botines.png';
+import '../styles/Home.css';
 
 const Home = ({ agregarAlCarrito, carrito }) => {
   const productos = [
@@ -48,15 +49,14 @@ const Home = ({ agregarAlCarrito, carrito }) => {
       imagen: camiseta
     }
   ];
-
   return (
-    <div>
-      <header className="App-header">
-        <h1>Bienvenido a nuestra tienda de ropa</h1>
-        <p>Explora nuestra colección de moda.</p>
+    <div className="products-container">
+      <header className="section-header">
+        <h1 className="section-title">Bienvenido a nuestra tienda de ropa</h1>
+        <p className="section-subtitle">Explora nuestra colección de moda.</p>
       </header>
       <main>
-        <div className="productos-container">
+        <div className="products-grid">
           {productos.map((producto, index) => (
             <Producto
               key={index}
@@ -67,7 +67,6 @@ const Home = ({ agregarAlCarrito, carrito }) => {
             />
           ))}
         </div>
-        <Carrito carrito={carrito} /> {/* Muestra el carrito */}
       </main>
     </div>
   );

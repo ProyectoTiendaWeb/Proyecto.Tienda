@@ -1,0 +1,159 @@
+.checkout-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.checkout-summary {
+  margin-bottom: 40px;
+}
+
+.checkout-summary h2 {
+  color: #444;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+
+.items-summary {
+  margin-bottom: 20px;
+}
+
+.checkout-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  background: #f8f8f8;
+  border-radius: 6px;
+}
+
+.checkout-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.checkout-item-details {
+  flex: 1;
+}
+
+.checkout-item-details h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.checkout-item-details p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.checkout-item-total {
+  font-weight: bold;
+  color: #ff4d4d;
+  font-size: 1.1rem;
+}
+
+.total-amount {
+  text-align: right;
+  font-size: 1.3rem;
+  padding: 20px;
+  background: #f8f8f8;
+  border-radius: 6px;
+}
+
+.payment-methods {
+  margin-bottom: 30px;
+}
+
+.payment-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.payment-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.payment-button:hover {
+  border-color: #ff4d4d;
+}
+
+.payment-button.active {
+  background: #ff4d4d;
+  border-color: #ff4d4d;
+  color: white;
+}
+
+.payment-button i {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.process-payment-button {
+  width: 100%;
+  padding: 15px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.process-payment-button:hover:not(:disabled) {
+  background: #ff3333;
+}
+
+.process-payment-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .checkout-container {
+    margin: 20px;
+  }
+
+  .payment-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .checkout-item-image {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .checkout-item-total {
+    margin-top: 10px;
+  }
+}
