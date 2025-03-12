@@ -44,27 +44,43 @@
 @media (max-width: 768px) {
   .sub-navbar {
     top: 60px;
-    padding: 5px 0;
+    padding: 8px 0;
+    background-color: rgba(34, 34, 34, 0.95);
   }
   
   .sub-navbar-links {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: flex-start;
-    padding: 5px 15px;
-    gap: 10px;
+    padding: 0 15px;
+    gap: 15px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    position: relative;
+    scroll-behavior: smooth;
   }
 
   .sub-navbar-links::-webkit-scrollbar {
     display: none;
   }
 
+  .sub-navbar-links li {
+    flex: 0 0 auto;
+  }
+
   .sub-navbar-links li a {
     font-size: 14px;
-    padding: 6px 12px;
+    padding: 8px 16px;
     white-space: nowrap;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    transition: all 0.2s ease;
+  }
+
+  .sub-navbar-links li a:active {
+    transform: scale(0.95);
+    background-color: rgba(255, 255, 255, 0.15);
   }
 }
