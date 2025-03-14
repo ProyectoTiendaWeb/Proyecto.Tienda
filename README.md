@@ -1,3 +1,5 @@
+Proyecto Tienda Web
+
 - Instalar NODE LTB 
 - Sobre la carpeta ./proyecto.tienda/frontend ejecutar: npm install
 - Sobre la carpeta ./proyecto.tienda/backend ejecutar: npm install
