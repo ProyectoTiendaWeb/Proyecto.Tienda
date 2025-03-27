@@ -9,10 +9,10 @@ jobs:
     steps:
       - name: Create Jira Issue
         env:
-          JIRA_EMAIL: "tu-email@empresa.com"  # Reemplaza con tu email de Jira
+          JIRA_EMAIL: "tiendagpt@gmail.com"  # Reemplaza con tu email de Jira
           JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
-          JIRA_DOMAIN: "tu-dominio.atlassian.net"  # Ej: "miempresa.atlassian.net"
-          JIRA_PROJECT_KEY: "PROJ"  # Clave de tu proyecto en Jira (ej: "DEV")
+          JIRA_DOMAIN: "tiendagpt.atlassian.net"  # Ej: "miempresa.atlassian.net"
+          JIRA_PROJECT_KEY: "PTW"  # Clave de tu proyecto en Jira (ej: "DEV")
           ISSUE_TYPE: "Task"  # Tipo de issue en Jira (ej: "Bug")
         run: |
           curl -X POST \
