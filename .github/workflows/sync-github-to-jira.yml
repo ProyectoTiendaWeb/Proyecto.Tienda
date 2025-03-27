@@ -11,7 +11,7 @@ jobs:
         env:
           JIRA_EMAIL: "tiendagpt@gmail.com"  # Email asociado a tu cuenta de Jira
           JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
-          JIRA_DOMAIN: "https://tiendagpt.atlassian.net/jira/your-work"  # Reemplaza con tu dominio de Jira
+          JIRA_DOMAIN: "https://tiendagpt.atlassian.net/"  # Reemplaza con tu dominio de Jira
           JIRA_PROJECT_KEY: "PTW"  # Clave del proyecto en Jira (ej: "DEV")
           ISSUE_TYPE: "Task"  # Tipo de issue en Jira (ej: "Bug", "Story")
         run: |
