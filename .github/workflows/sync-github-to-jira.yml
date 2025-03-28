@@ -1,0 +1,34 @@
+name: Sync GitHub Issue to Jira
+on:
+  issues:
+    types: [opened]  # Se activa al crear un issue
+
+jobs:
+  sync-to-jira:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Jira Issue
+        env:
+          JIRA_EMAIL: "tiendagpt@gmail.com"  # Reemplaza con tu email de Jira
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}  # Usa el secret que creaste
+          JIRA_DOMAIN: "tiendagpt.atlassian.net"  # Ej: "mi-negocio.atlassian.net"
+          JIRA_PROJECT_KEY: "PTW"  # Clave del proyecto en Jira (ej: "DEV")
+          ISSUE_TYPE: "Task"  # Tipo de issue (ej: "Bug", "Story")
+        run: |
+          # Escapa caracteres especiales (como comillas)
+          SUMMARY=$(echo '${{ github.event.issue.title }}' | jq -Rs .)
+          DESCRIPTION=$(echo '${{ github.event.issue.body }}' | jq -Rs .)
+
+          # Envía los datos a Jira
+          curl -X POST \
+          "https://$JIRA_DOMAIN/rest/api/2/issue" \
+          -u "$JIRA_EMAIL:$JIRA_API_TOKEN" \
+          -H "Content-Type: application/json" \
+          -d '{
+            "fields": {
+              "project": { "key": "'"$JIRA_PROJECT_KEY"'" },
+              "summary": '"$SUMMARY"',
+              "description": '"$DESCRIPTION"',
+              "issuetype": { "name": "'"$ISSUE_TYPE"'" }
+            }
+          }'
