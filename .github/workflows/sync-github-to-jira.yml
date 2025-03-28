@@ -29,8 +29,6 @@ jobs:
               "project": { "key": "'"$JIRA_PROJECT_KEY"'" },
               "summary": '"$SUMMARY"',
               "description": '"$DESCRIPTION"',
-              "issuetype": { "name": "'"$ISSUE_TYPE"'" },
-              "labels": ["github-sync"],  # Etiquetas personalizadas
-              "priority": { "name": "High" }  # Prioridad
+              "issuetype": { "name": "'"$ISSUE_TYPE"'" }
             }
           }'
